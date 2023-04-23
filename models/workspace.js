@@ -6,15 +6,12 @@ const workSpaceSchema = new Schema(
   {
     workspace_name: {
       type: String,
-      require: true,
     },
     workspace_category: {
       type: String,
-      require: true,
     },
     workspace_type: {
       type: String,
-      require: true,
     },
     workspace_startDate: {
       type: String,
@@ -27,11 +24,9 @@ const workSpaceSchema = new Schema(
     },
     member: {
       type: Object,
-      require: true,
     },
     workflow: {
       type: Object,
-      require: true,
     },
   },
   {

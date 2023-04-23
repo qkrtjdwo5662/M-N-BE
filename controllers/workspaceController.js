@@ -76,7 +76,7 @@ const selectWS = async (req, res) => {
     const selectWS = await WorkSpace.findOne({
       _id: ObjectId(req.params.id),
     });
-    console.log(selectWS);
+    // console.log(selectWS);
     if (!selectWS) res.statsus(400).send(err.message);
     return res.status(200).json(selectWS);
     // res.render('workspace_workflow.ejs', { selectWS });
