@@ -6,26 +6,25 @@ const cookie = require('cookie-parser');
 const session = require('express-session');
 // const helmet = require('helmet');
 
-const http = require('http');
-// const socketIO = require('socket.io')(http, { cors: { origin: '*' } });
+// const http = require('http');
 
 const app = express();
 
-const server = http.createServer(app);
-const io = require('socket.io')(server, { cors: { origin: '*' } });
+// const server = http.createServer(app);
+// const io = require('socket.io')(server, { cors: { origin: '*' } });
 
-io.on('connection', (socket) => {
-  // front -> back
-  socket.on('send message', (front_message) => {
-    console.log(front_message);
-    //back -> front
-    const msg = 'state 변경 감지';
-    io.emit('receive message', msg);
-  });
-  socket.on('disconnect', function () {
-    console.log('user disconnected: ', socket.id);
-  });
-});
+// io.on('connection', (socket) => {
+//   // front -> back
+//   socket.on('send message', (front_message) => {
+//     console.log(front_message);
+//     //back -> front
+//     const msg = 'state 변경 감지';
+//     io.emit('receive message', msg);
+//   });
+//   socket.on('disconnect', function () {
+//     console.log('user disconnected: ', socket.id);
+//   });
+// });
 const passportConfig = require('./passport');
 // passportConfig(app);
 
@@ -64,6 +63,6 @@ const workspaceRouter = require('./routes/workspace');
 app.use('/', homeRouter);
 app.use('/workspace', workspaceRouter);
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`포트번호 ${PORT}번 실행`);
 });
